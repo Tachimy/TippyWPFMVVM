@@ -1,0 +1,69 @@
+﻿<Window x:Class="TrippyProject.View.ErrorMessageView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        mc:Ignorable="d"
+        WindowStyle="None"
+        WindowStartupLocation="CenterOwner"
+        Height="100"
+        Width="400"
+        AllowsTransparency="True"
+        Background="Transparent"
+        ResizeMode="NoResize"
+        Icon="/Images/errortIconForHeader.ico">
+
+    <Grid  Margin="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <Border Background="#d0cfd7" 
+                Grid.Row="0"
+                CornerRadius="10">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Image Source="../Images/errorIcon.png" 
+                       Width="60" 
+                       Height="50"
+                       VerticalAlignment="Center"
+                       HorizontalAlignment="Left"
+                       Margin="10"/>
+                <StackPanel Grid.Column="1">
+                    <TextBlock Text="Ошибка"
+                               Foreground="Red"
+                               FontSize="24"
+                               FontWeight="Bold"
+                               VerticalAlignment="Center"
+                               Margin="5"/>
+                    <TextBlock Text=""
+                               x:Name="textError"
+                               Foreground="DarkGray"
+                               FontSize="18"
+                               FontWeight="Bold"
+                               Margin="5"
+                               VerticalAlignment="Center"/>
+                </StackPanel>
+
+
+                <materialDesign:PackIcon Kind="Close"
+                                         x:Name="closeBtn"
+                                         VerticalAlignment="Top"
+                                         Width="20"
+                                         Height="20"
+                                         HorizontalAlignment="Right"
+                                         Foreground="DarkGray"
+                                         Margin="10"
+                                         MouseDown="close_MouseDown"
+                                         Cursor="Hand"
+                                         Grid.Column="2"
+                                         MouseEnter="close_MouseEnter"
+                                         MouseLeave="close_MouseLeave"/>
+            </Grid>
+        </Border>
+    </Grid>
+</Window>

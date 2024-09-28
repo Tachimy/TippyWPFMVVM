@@ -1,0 +1,127 @@
+﻿<Window x:Class="TrippyProject.View.MainWindowView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:uc="clr-namespace:TrippyProject.Controls"
+        xmlns:Icon="http://metro.mahapps.com/winfx/xaml/iconpacks"
+        mc:Ignorable="d"
+        Height="750" Width="1200" ResizeMode="NoResize"
+        Background="Transparent"
+        AllowsTransparency="True"
+        WindowStyle="None"
+        WindowStartupLocation="CenterScreen">
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="200"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <!-- Верхняя полоска -->
+        <Border Grid.ColumnSpan="2" 
+                Background="#1f83e0"
+                CornerRadius="20 20 0 0"
+                BorderThickness="0"/>
+
+        <!-- Основной фон -->
+        <Border CornerRadius="0 0 20 20"
+            Background="#f8f7fc"
+            Grid.Column="0"
+            Grid.Row="1"
+            Grid.ColumnSpan="2"
+            Grid.RowSpan="2"
+            x:Name="backGroundPanel" 
+            MouseDown="backGroundPanel_MouseDown">
+        </Border>
+
+        <!-- Левое меню -->
+        <Border Grid.Column="0"
+            Grid.Row="2"
+            Grid.RowSpan="2"
+            CornerRadius="0 0 0 20"
+            Background="#1f83e0"
+            Panel.ZIndex="1"
+            x:Name="leftPanel" MouseDown="leftPanel_MouseDown">
+            <Grid>
+                <StackPanel VerticalAlignment="Top" Margin="10">
+                    <uc:MenuButton Title="Главная" Icon="HomeOutline"/>
+                    <uc:MenuButton Title="Пользователи" Icon="AccountMultiple"/>
+                </StackPanel>
+                <StackPanel VerticalAlignment="Bottom" Margin="20">
+                    <uc:MenuButton Title="Настройки" Icon="HelpCircleOutline"/>
+                    <uc:MenuButton Title="Помощь" Icon="HelpCircleOutline"/>
+                    <uc:MenuButton Title="Выход" Icon="ExitToApp"/>
+                </StackPanel>
+            </Grid>
+        </Border>
+
+        <!-- Панель поиска и кнопок -->
+        <Grid Grid.Column="1"
+
+              Grid.Row="1"
+              Margin="40 30">
+            <Grid HorizontalAlignment="Left">
+                <Border Background="#ffffff"
+                        CornerRadius="20"
+                        Height="55"
+                        BorderThickness="0">
+                    <StackPanel Orientation="Horizontal">
+                        <Border Width="40" Height="40" 
+                                CornerRadius="18"  
+                                Margin="50 0 10 0"
+                                HorizontalAlignment="Left"
+                                VerticalAlignment="Center"
+                                Panel.ZIndex="1">
+                            <Image Stretch="Fill" Source="pack://application:,,,/Images/userProfileStartImage.png"/>
+                        </Border>
+                        <TextBlock Text="Иванов Иван Иванович" 
+                                   VerticalAlignment="Center" 
+                                   Margin="20"
+                                   Foreground="#88878e"
+                                   HorizontalAlignment="Center"/>
+                    </StackPanel>
+                </Border>
+            </Grid>
+
+            <StackPanel Orientation="Horizontal"
+                        HorizontalAlignment="Right">
+                <Button Style="{StaticResource iconButton}">
+                    <Icon:PackIconMaterial Kind="BellOutline"
+                                           Foreground="#88878e"
+                                           HorizontalAlignment="Center"/>
+                </Button>
+                <Button Style="{StaticResource iconButton}" Background="LightGray">
+                    <Icon:PackIconMaterial Kind="AccountArrowLeftOutline"
+                                           Foreground="#88878e"
+                                           HorizontalAlignment="Center"
+                                           Background="LightGray"/>
+                </Button>
+                <Button Style="{StaticResource iconButton}">
+                    <Icon:PackIconMaterial Kind="DotsVertical"
+                                           Foreground="#88878e"
+                                           HorizontalAlignment="Center"/>
+                </Button>
+            </StackPanel>
+        </Grid>
+
+        <!-- Placeholder для контента -->
+        <Border Grid.Column="1" 
+            Grid.Row="2"
+            Background="LightGray"
+            CornerRadius="0 0 20 0"
+            BorderThickness="0">
+            <TextBlock Text="Content Placeholder"
+                   HorizontalAlignment="Center"
+                   VerticalAlignment="Center"
+                   Foreground="Gray"/>
+        </Border>
+    </Grid>
+
+</Window>
